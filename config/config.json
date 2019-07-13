@@ -9,7 +9,7 @@
   "test": {
     "username": "root",
     "password": null,
-    "database": "testdb",
+    "database": "Salutaris_Test_DB",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
