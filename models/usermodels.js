@@ -129,6 +129,13 @@ module.exports = function(sequelize, DataTypes) {
         msg: "User Name field cannot be empty"
       }
     },
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: true,
+        msg: "Please enter a valid Email Address"
+      }
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
