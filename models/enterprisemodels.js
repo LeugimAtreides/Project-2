@@ -42,7 +42,7 @@ module.exports = function(sequelize, DataTypes) {
     EnterpriseFID: {
       type: DataTypes.INTEGER,
       references: {
-        model: enterpriseInvoice,
+        model: "enterpriseInvoice",
         key: "EFID"
       }
     }
@@ -74,7 +74,7 @@ module.exports = function(sequelize, DataTypes) {
     EnterpriseID: {
       type: DataTypes.INTEGER,
       references: {
-        model: enterpriseLogin,
+        model: "enterpriseLogin",
         key: "EID"
       }
     }
@@ -97,7 +97,7 @@ module.exports = function(sequelize, DataTypes) {
     financeID: {
       type: DataTypes.INTEGER,
       references: {
-        model: enterpriseInvoice,
+        model: "enterpriseInvoice",
         key: "EFID"
       }
     }

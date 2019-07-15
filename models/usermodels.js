@@ -155,7 +155,7 @@ module.exports = function(sequelize, DataTypes) {
     baseID: {
       type: DataTypes.INTEGER,
       references: {
-        model: userBase,
+        model: "userBase",
         key: "UID"
       }
     },
@@ -163,7 +163,7 @@ module.exports = function(sequelize, DataTypes) {
     healthID: {
       type: DataTypes.INTEGER,
       references: {
-        model: userHealth,
+        model: "userHealth",
         key: "UHID"
       }
     },
@@ -171,7 +171,7 @@ module.exports = function(sequelize, DataTypes) {
     baseID: {
       type: DataTypes.INTEGER,
       references: {
-        model: userScore,
+        model: "userScore",
         key: "USID"
       }
     }
