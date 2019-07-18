@@ -13,36 +13,36 @@ module.exports = function(sequelize, DataTypes) {
     drinkPerWeek: {
       type: DataTypes.INTEGER,
       validate: {
-        len: [0, 10],
-        msg: "Choose between 0 and 10 drinks per week"
+        len: [0, 10]
+        // msg: "Choose between 0 and 10 drinks per week"
       }
     },
     dailyCalories: {
       type: DataTypes.INTEGER,
       validate: {
-        len: [500, 7000],
-        msg: "Choose a valid amount of calories"
+        len: [0, 7000]
+        // msg: "Choose a valid amount of calories"
       }
     },
     excerciseMinutes: {
       type: DataTypes.INTEGER,
       validate: {
-        len: [0, 120],
-        msg: "Choose a valid amount of excercise minutes"
+        len: [0, 120]
+        // msg: "Choose a valid amount of excercise minutes"
       }
     },
     mood: {
       type: DataTypes.INTEGER,
       validate: {
-        len: [1, 3],
-        msg: "Choose a number between 1-3"
+        len: [1, 3]
+        // msg: "Choose a number between 1-3"
       }
     },
     race: {
       type: DataTypes.INTEGER,
       validate: {
-        len: [1, 3],
-        msg: "Choose a number between 1-8"
+        len: [1, 3]
+        // msg: "Choose a number between 1-8"
       }
     },
     gender: DataTypes.BOOLEAN,
@@ -51,8 +51,8 @@ module.exports = function(sequelize, DataTypes) {
     weight: {
       type: DataTypes.DECIMAL,
       validate: {
-        len: [1, 1000],
-        msg: "Please enter your weight in pounds"
+        len: [1, 1000]
+        // msg: "Please enter your weight in pounds"
       }
     },
 
@@ -60,11 +60,18 @@ module.exports = function(sequelize, DataTypes) {
     height: {
       type: DataTypes.DECIMAL,
       validate: {
-        len: [0, 1000],
-        msg: "invalid height error"
+        len: [0, 1000]
+        // msg: "invalid height error"
       }
     },
-    BMI: DataTypes.DECIMAL
+    BMI: DataTypes.DECIMAL,
+    LID: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "UserLogins",
+        key: "LID"
+      }
+    }
   });
 
   return UserHealth;

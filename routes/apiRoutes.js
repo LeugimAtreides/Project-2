@@ -1,26 +1,57 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  // Get User Health Data
+  app.get("/api/userhealth/:LID", function(req, res) {
+    db.UserHealth.findOne({
+      where: {
+        LID: req.params.LID
+      },
+      include: [
+        {
+          model: UserHealh
+        }
+      ]
+    }).then(function(healthData) {
+      res.json(healthData);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // Get user base data
+  app.get("/api/userbase/:LID", function(req, res) {
+    db.UserBase.findOne({
+      where: {
+        LID: req.params.LID
+      },
+      include: [
+        {
+          model: UserBase
+        }
+      ]
+    }).then(function(baseData) {
+      res.json(baseData);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.json(dbExample);
+  //   get user login data
+  app.get("/api/userlogin/:LID", function(req, res) {
+    db.UserLogin.findOne({
+      where: {
+        LID: req.params.LID
+      }
+    }).then(function(loginData) {
+      res.json(loginData);
+    });
+  });
+
+  //   get user scores
+  app.get("/api/userscore/:LID", function(req, res) {
+    db.UserScore.findOne({
+      where: {
+        LID: req.params.LID
+      }
+    }).then(function(scoreData) {
+      res.json(scoreData);
     });
   });
 };

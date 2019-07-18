@@ -11,23 +11,30 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1],
-        msg: "Last Name field cannot be empty"
+        len: [1]
+        // msg: "Last Name field cannot be empty"
       }
     },
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1],
-        msg: "First Name field cannot be empty"
+        len: [1]
+        // msg: "First Name field cannot be empty"
       }
     },
     zipCode: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        len: [5, 5]
+        len: [5]
+      }
+    },
+    LoginID: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "UserLogins",
+        key: "LID"
       }
     }
   });

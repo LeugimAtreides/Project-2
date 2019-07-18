@@ -11,39 +11,46 @@ module.exports = function(sequelize, DataTypes) {
     heartRisk: {
       type: DataTypes.DECIMAL,
       validate: {
-        len: [0, 1],
-        msg: "Number must be between 0 and 1"
+        len: [0, 1]
+        // msg: "Number must be between 0 and 1"
       }
     },
     liverRisk: {
       type: DataTypes.DECIMAL,
       validate: {
-        len: [0, 1],
-        msg: "Number must be between 0 and 1"
+        len: [0, 1]
+        // msg: "Number must be between 0 and 1"
       }
     },
     kidneyRisk: {
       type: DataTypes.DECIMAL,
       validate: {
-        len: [0, 1],
-        msg: "Number must be between 0 and 1"
+        len: [0, 1]
+        // msg: "Number must be between 0 and 1"
       }
     },
     diabetesRisk: {
       type: DataTypes.DECIMAL,
       validate: {
-        len: [0, 1],
-        msg: "Number must be between 0 and 1"
+        len: [0, 1]
+        // msg: "Number must be between 0 and 1"
       }
     },
     strokeRisk: {
       type: DataTypes.DECIMAL,
       validate: {
-        len: [0, 1],
-        msg: "Number must be between 0 and 1"
+        len: [0, 1]
+        // msg: "Number must be between 0 and 1"
       }
     },
-    healthScore: DataTypes.INTEGER
+    healthScore: DataTypes.INTEGER,
+    LID: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "UserLogins",
+        key: "LID"
+      }
+    }
   });
 
   return UserScore;

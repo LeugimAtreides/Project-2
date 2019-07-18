@@ -10,6 +10,7 @@ function generateUsers() {
   };
 
   var fakeUserLoginObj = {
+    LID: "",
     userName: "",
     email: "",
     password: "",
@@ -17,6 +18,7 @@ function generateUsers() {
   };
 
   var fakeUserHealthObj = {
+    UHID: "",
     createdAt: "",
     smokeStatus: "",
     drinkPerWeek: "",
@@ -26,13 +28,9 @@ function generateUsers() {
     height: "",
     gender: "",
     race: "",
-    calories: "",
+    dailyCalories: "",
     BMI: ""
   };
-
-  var fakeUserBase = [];
-  var fakeUserLogin = [];
-  var fakeUserHealth = [];
 
   for (var id = 1; id <= 100; id++) {
     // set the values of the user base object
@@ -42,11 +40,13 @@ function generateUsers() {
     fakeUserBaseObj.zipCode = faker.address.zipCode();
 
     // set the values of the user login object
+    fakeUserLoginObj.LID = id;
     fakeUserLoginObj.email = faker.internet.email();
     fakeUserLoginObj.username = faker.internet.userName();
     fakeUserLoginObj.password = faker.internet.password();
 
     // set the values of the user health object
+    fakeUserHealthObj.UHID = id;
     fakeUserHealthObj.smokeStatus = faker.random.boolean();
     fakeUserHealthObj.drinkPerWeek = faker.random.number({
       min: 0,
@@ -55,6 +55,10 @@ function generateUsers() {
     fakeUserHealthObj.excerciseMinutes = faker.random.number({
       min: 0,
       max: 120
+    });
+    fakeUserHealthObj.dailyCalories = faker.random.number({
+      min: 500,
+      max: 6000
     });
     fakeUserHealthObj.mood = faker.random.number({
       min: 1,
@@ -86,29 +90,15 @@ function generateUsers() {
     fakeUserLoginObj.createdAt = faker.date.recent();
     fakeUserHealthObj.createdAt = faker.date.recent();
 
-    fakeUserBase.push(fakeUserBaseObj);
-
-    fakeUserLogin.push(fakeUserLoginObj);
-
-    fakeUserHealth.push(fakeUserHealthObj);
-
-    // db.userBase.create(fakeUserBaseObj).then(function(dbExample) {
-    //   res.json(dbExample);
-    //   console.log(dbExample);
-    // });
-
     db.UserBase.create(fakeUserBaseObj).then(function(dbExample) {
-      res.json(dbExample);
       console.log(dbExample);
     });
 
     db.UserHealth.create(fakeUserHealthObj).then(function(dbExample) {
-      res.json(dbExample);
       console.log(dbExample);
     });
 
     db.UserLogin.create(fakeUserLoginObj).then(function(dbExample) {
-      res.json(dbExample);
       console.log(dbExample);
     });
   }
