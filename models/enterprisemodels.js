@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   //this model will define the enterprise data sets with the purpose being to track enterprise identities and track invoice payments
 
-  var enterpriseInvoice = sequelize.define("EnterpriseInvoice", {
+  var EnterpriseInvoice = sequelize.define("EnterpriseInvoice", {
     //   financial ID
     FID: {
       type: DataTypes.INTEGER,
@@ -34,7 +34,7 @@ module.exports = function(sequelize, DataTypes) {
     // }
   });
 
-  var enterprisePurchases = sequelize.define("EnterprisePurchases", {
+  var EnterprisePurchases = sequelize.define("EnterprisePurchases", {
     PID: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -99,18 +99,18 @@ module.exports = function(sequelize, DataTypes) {
     financeID: {
       type: DataTypes.INTEGER,
       references: {
-        model: "enterpriseInvoice",
+        model: "EnterpriseInvoice",
         key: "FID"
       }
     },
     purchaseID: {
       type: DataTypes.INTEGER,
       references: {
-        model: "enterprisePurchases",
+        model: "EnterprisePurchases",
         key: "PID"
       }
     }
   });
 
-  return enterpriseInvoice, enterprisePurchases, enterpriseLogin;
+  return EnterpriseInvoice, EnterprisePurchases, enterpriseLogin;
 };
