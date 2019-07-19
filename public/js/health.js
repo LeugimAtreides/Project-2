@@ -1,4 +1,3 @@
-import { json } from "sequelize/types";
 
 $(function() {
   $("#survey").on("submit", insertSurvey);
