@@ -98,7 +98,7 @@ function generateUsers() {
     fakeUserHealthObj.createdAt = faker.date.recent();
     fakeUserScoreObj.createdAt = faker.date.recent();
 
-    db.UserScore.create(fakeUserScoreObj).then(function(dbExample){
+    db.UserScore.create(fakeUserScoreObj).then(function(dbExample) {
       console.log(dbExample);
     });
 

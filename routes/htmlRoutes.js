@@ -11,8 +11,8 @@ module.exports = function(app) {
     res.render("login");
   });
 
-  app.get("/survey/" + id, function(req, res) {
-    var id = $(this).data("LID");
+  app.get("/survey/", function(req, res) {
+    // var id = $(this).data("LID");
     res.render("survey");
   });
 
