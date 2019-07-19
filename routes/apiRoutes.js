@@ -70,26 +70,26 @@ module.exports = function(app) {
       res.json(fjdk);
     });
   });
+
+  app.post("/api/userbases", function(req, res) {
+    db.UserBase.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      zipCode: req.body.zipCode
+    }).then(function(result) {
+      console.log("User Data Created!: ", result);
+      res.json(result);
+    });
+  });
+
+  app.post("/api/userlogins", function(req, res) {
+    db.UserLogin.create({
+      userName: req.body.userName,
+      email: req.body.email,
+      password: req.body.password
+    }).then(function(result) {
+      res.json(result);
+      console.log("User Data created, ", result);
+    });
+  });
 };
-
-app.post("/api/userbases", function(req, res) {
-  db.UserBase.create({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    zipCode: req.body.zipCode
-  }).then(function(result) {
-    console.log("User Data Created!: ", result);
-    res.json(result);
-  });
-});
-
-app.post("/api/userlogins", function(req, res) {
-  db.UserLogin.create({
-    userName: req.body.userName,
-    email: req.body.email,
-    password: req.body.password
-  }).then(function(result) {
-    res.json(result);
-    console.log("User Data created, ", result);
-  });
-});

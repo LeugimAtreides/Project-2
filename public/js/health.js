@@ -1,3 +1,5 @@
+import { json } from "sequelize/types";
+
 $(function() {
   $("#survey").on("submit", insertSurvey);
   $("#signUp").on("submit", signUp);
@@ -82,10 +84,23 @@ $(function() {
       data: newUserLogin
     }).then(function(data) {
       console.log(data);
+      var user = JSON.stringify(data)
+      user = user[0].LID;
       console.log("new login data created!");
+      getSurvey(user)
     });
+
   }
 
+  function getSurvey(user) {
+    loginId = user || "";
+    if (user) {
+      userId = "/?LID=" + loginId;
+    }
+    $.ajax.get("/survey" + loginId, function(res){
+      res.render("survey");
+    });
+  }
   function contactUs(event) {
     event.preventDefault();
     console.log("contact us");
