@@ -57,11 +57,11 @@ module.exports = function(app) {
 
   app.post("/api/userhealths", function(req, res) {
     db.UserHealth.create({
-      smoke: req.body.smoke,
-      drinks: req.body.drinks,
+      smokeStatus: req.body.smoke,
+      drinkPerWeek: req.body.drinks,
       weight: req.body.weight,
-      calories: req.body.calories,
-      exercise: req.body.exercise,
+      dailyCalories: req.body.calories,
+      exerciseMinutes: req.body.exercise,
       mood: req.body.mood,
       race: req.body.race,
       gender: req.body.gender,
