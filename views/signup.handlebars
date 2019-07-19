@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <form class="form-group" id="signUp">
+                <div id="container" style="width:30%" class="center">
+                    <label for="lastName">Last Name: </label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+
+                    <label for="firstName">First Name: </label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
+
+                    <label for="zipCode">Zip Code: </label>
+                    <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="Zip code" title="Zip code"
+                        pattern=".{5,5}">
+
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+                        placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted"> We'll never share your email with anyone
+                        else.</small>
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                </div>
+                <br>
+                {{!-- onclick="window.location.href='/survey'" --}}
+                <button type="submit" class="btn btn-primary" id="submitUser">Submit</button>
+            </form>
+        </div>
+
+    </div>
+</div>

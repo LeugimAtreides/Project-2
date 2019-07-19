@@ -34,7 +34,7 @@ module.exports = function(app) {
   });
 
   //   get user login data
-  app.get("/api/userlogin/:LID", function(req, res) {
+  app.get("/api/userlogins/:LID", function(req, res) {
     db.UserLogin.findOne({
       where: {
         LID: req.params.LID
@@ -45,7 +45,7 @@ module.exports = function(app) {
   });
 
   //   get user scores
-  app.get("/api/userscore/:LID", function(req, res) {
+  app.get("/api/userscores/:LID", function(req, res) {
     db.UserScore.findOne({
       where: {
         LID: req.params.LID
@@ -54,4 +54,42 @@ module.exports = function(app) {
       res.json(scoreData);
     });
   });
+
+  app.post("/api/userhealths", function(req, res) {
+    db.UserHealth.create({
+      smoke: req.body.smoke,
+      drinks: req.body.drinks,
+      weight: req.body.weight,
+      calories: req.body.calories,
+      exercise: req.body.exercise,
+      mood: req.body.mood,
+      race: req.body.race,
+      gender: req.body.gender,
+      height: req.body.height
+    }).then(function(fjdk) {
+      res.json(fjdk);
+    });
+  });
 };
+
+app.post("/api/userbases", function(req, res) {
+  db.UserBase.create({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    zipCode: req.body.zipCode
+  }).then(function(result) {
+    console.log("User Data Created!: ", result);
+    res.json(result);
+  });
+});
+
+app.post("/api/userlogins", function(req, res) {
+  db.UserLogin.create({
+    userName: req.body.userName,
+    email: req.body.email,
+    password: req.body.password
+  }).then(function(result) {
+    res.json(result);
+    console.log("User Data created, ", result);
+  });
+});

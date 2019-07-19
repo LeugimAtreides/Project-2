@@ -2,6 +2,11 @@ var faker = require("faker");
 var db = require("../models");
 
 function generateUsers() {
+  var fakeUserScoreObj = {
+    USID: "",
+    createdAt: ""
+  };
+
   var fakeUserBaseObj = {
     UID: "",
     firstName: "",
@@ -33,6 +38,8 @@ function generateUsers() {
   };
 
   for (var id = 1; id <= 100; id++) {
+    // set the value for the score Object
+    fakeUserScoreObj.USID = id;
     // set the values of the user base object
     fakeUserBaseObj.UID = id;
     fakeUserBaseObj.firstName = faker.name.firstName();
@@ -89,6 +96,11 @@ function generateUsers() {
     fakeUserBaseObj.createdAt = faker.date.recent();
     fakeUserLoginObj.createdAt = faker.date.recent();
     fakeUserHealthObj.createdAt = faker.date.recent();
+    fakeUserScoreObj.createdAt = faker.date.recent();
+
+    db.UserScore.create(fakeUserScoreObj).then(function(dbExample){
+      console.log(dbExample);
+    });
 
     db.UserBase.create(fakeUserBaseObj).then(function(dbExample) {
       console.log(dbExample);
