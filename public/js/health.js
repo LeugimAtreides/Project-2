@@ -1,5 +1,6 @@
-
 $(function() {
+  console.log("hooked up");
+
   $("#survey").on("submit", insertSurvey);
   $("#signUp").on("submit", signUp);
   $("#contactUs").on("submit", contactUs);
@@ -83,12 +84,11 @@ $(function() {
       data: newUserLogin
     }).then(function(data) {
       console.log(data);
-      var user = JSON.stringify(data)
+      var user = JSON.stringify(data);
       user = user[0].LID;
       console.log("new login data created!");
-      getSurvey(user)
+      getSurvey(user);
     });
-
   }
 
   function getSurvey(user) {
@@ -96,7 +96,7 @@ $(function() {
     if (user) {
       userId = "/?LID=" + loginId;
     }
-    $.ajax.get("/survey" + loginId, function(res){
+    $.ajax.get("/survey" + loginId, function(res) {
       res.render("survey");
     });
   }
