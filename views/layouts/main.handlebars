@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -23,44 +24,58 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Salutaris |</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <h2><a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a></h2>
-                </li>
-                <li class="nav-item active">
-                    <h2><a class="nav-link" href="#">About Us<span class="sr-only">(current)</span></a></h2>
-                </li>
-            </ul>
-        </div>
+    <div id="page_container">
+        {{!-- left hand stuff/ LINKS--}}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">Salutaris |</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <form class="form-inline my-2 my-lg-0">
-            <label for="userName" class="mr-sm-2">User name: </label>
-            <input class="form-control mr-sm-2" type="search" placeholder="User Name" aria-label="Search">
-            <label for="password" class="mr-sm-2">Password:</label>
-            <input class="form-control mr-sm-2" type="search" placeholder="Password" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-        </form>
-    </nav>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <h2><a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a></h2>
+                    </li>
+                    <li class="nav-item active">
+                        <h2><a class="nav-link" href="/about">About Us<span class="sr-only">(current)</span></a></h2>
+                    </li>
+                </ul>
+            </div>
+            {{!-- right hand side stuff/ LOGIN --}}
+            <div class="my-2 my-lg-0">
+                <ul class="navbar-nav mr-auto">
+                    <li class="navbar-brand">
+                        <h4><a href="/login" class="nav-link">Login</a></h4>
+                    </li>
+                    <li class="navbar-brand">
+                        <h4 class="mt-2">|</h4>
+                    </li>
+                    <li class="navbar-brand">
+                        <h4><a href="/signup" class="nav-link">Sign Up</a></h4>
+                    </li>
+                </ul>
+            </div>
 
-    {{{body}}}
+        </nav>
 
-    <div class="fixed-bottom text-center">
+        {{{body}}}
+
+    </div>
+
+    {{!-- footer --}}
+    <div class="footer" style="bottom: 0; width: 100%; ">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <h4><a class="nav-link" href="#">Contact us <span class="sr-only">(current)</span></a></h4>
+                    <h4><a class="nav-link" href="/contactus">Contact us <span class="sr-only">(current)</span></a></h4>
                 </li>
             </ul>
         </nav>
     </div>
+    <script src="health.js"></script>
 
 </body>
 
